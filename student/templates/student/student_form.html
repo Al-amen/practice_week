@@ -1,0 +1,25 @@
+{% extends "student/base.html" %}
+{% load static %}
+{% block content %}
+<h2>Student Form</h2>
+<form method="POST">
+    {% csrf_token %}
+        {% for filed in form %}
+        <div class="mb-3">
+          <label for="id_name" class="form-label">{{filed.label}}</label>
+          {% comment %} <input type="text" class="form-control" id="id_name" name="name" aria-describedby="emailHelp"> {% endcomment %}
+           {{filed}}
+          
+        </div>
+        {% endfor %}
+        
+        
+       
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+   
+</form>
+{% endblock %}
+
+{% block title %}Create Student{% endblock  %}
+
